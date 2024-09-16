@@ -1,2 +1,201 @@
-add settings.json data here
+{
+  "workbench.iconTheme": "vs-seti",
+  "sublimeTextKeymap.promptV3Features": true,
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnPaste": true,
+  "workbench.colorTheme": "Night Owl",
+  "breadcrumbs.enabled": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "java.semanticHighlighting.enabled": true,
+  "java.imports.gradle.wrapper.checksums": [
+    {
+      "sha256": "ad63ba21fb91e490e0f6fd0ca7d4049241f0f68a454b0b3075c041c4554e611c",
+      "allowed": true
+    }
+  ],
+  "redhat.telemetry.enabled": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.sideBar.location": "right",
 
+  // Aktivieren des Vim-Plug-ins
+  "vim.enableVim": true,
+  // Setzt den Leader-Key auf Space
+  "vim.leader": " ",
+  // Clipboard sync with OS clipboard
+  "vim.useSystemClipboard": true,
+  // Highlight search results
+  "vim.hlsearch": true,
+  // Case-insensitive search, except when using uppercase
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  // Enable relative number
+  "vim.relativenumber": true,
+  // Incremental search
+  "vim.incsearch": true,
+  // Additional custom Vim keybindings
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Remap 'w', 'e', 'b', 'ge' for word navigation
+    {
+      "before": ["w"],
+      "after": ["[", "w"]
+    },
+    {
+      "before": ["e"],
+      "after": ["]", "w"]
+    },
+    {
+      "before": ["b"],
+      "after": ["[", "b"]
+    },
+    {
+      "before": ["g", "e"],
+      "after": ["]", "b"]
+    },
+    // Split navigation
+    {
+      "before": ["<A-j>"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    {
+      "before": ["<A-k>"],
+      "commands": ["workbench.action.navigateDown"]
+    },
+    {
+      "before": ["<A-l>"],
+      "commands": ["workbench.action.navigateUp"]
+    },
+    {
+      "before": ["<A-;>"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    // Leader key actions
+    {
+      "before": ["<leader>", "cc"],
+      "commands": ["workbench.action.files.openFolder"]
+    },
+    {
+      "before": ["<leader>", "cs"],
+      "commands": ["workbench.action.reloadWindow"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // Paste without overwriting the default register
+    {
+      "before": ["p"],
+      "after": ["P"]
+    }
+  ],
+  // Custom keybindings for VS Code commands with leader key
+  "vim.normalModeKeyBindings": [
+    // Goto functions
+    {
+      "before": ["<leader>", "sc"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "sf"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "ss"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "sa"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "gd"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["<leader>", "gi"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["<leader>", "gy"],
+      "commands": ["editor.action.peekTypeDefinition"]
+    },
+    {
+      "before": ["<leader>", "gt"],
+      "commands": ["workbench.action.gotoTest"]
+    },
+    {
+      "before": ["<leader>", "gl"],
+      "commands": ["workbench.action.gotoLine"]
+    },
+    // Refactor and Code actions
+    {
+      "before": ["<leader>", "rn"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "rm"],
+      "commands": ["editor.action.refactor"]
+    },
+    {
+      "before": ["<leader>", "rv"],
+      "commands": ["editor.action.refactor"]
+    },
+    {
+      "before": ["<leader>", "rf"],
+      "commands": ["editor.action.refactor"]
+    },
+    {
+      "before": ["<leader>", "rs"],
+      "commands": ["editor.action.signatureHelp"]
+    },
+    // Code formatting and optimization
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "oi"],
+      "commands": ["editor.action.organizeImports"]
+    },
+    {
+      "before": ["<leader>", "ra"],
+      "commands": ["editor.action.rearrangeCode"]
+    },
+    // Diagnostics and error navigation
+    {
+      "before": ["<leader>", "en"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<leader>", "ep"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    // File management and navigation
+    {
+      "before": ["<leader>", "nf"],
+      "commands": ["workbench.action.files.newUntitledFile"]
+    },
+    {
+      "before": ["<leader>", "nd"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "re"],
+      "commands": ["workbench.action.renameFile"]
+    },
+    {
+      "before": ["<leader>", "of"],
+      "commands": ["workbench.action.files.openFile"]
+    },
+    {
+      "before": ["<leader>", "qq"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "qa"],
+      "commands": ["workbench.action.closeAllEditors"]
+    }
+  ],
+  "editor.lineNumbers": "relative"
+}
