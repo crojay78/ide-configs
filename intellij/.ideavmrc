@@ -93,11 +93,15 @@ let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
 let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
 let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
 let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+let g:WhichKeyDesc_goto_method = "<leader>gm Show all methods in class"
+
 
 let g:WhichKeyDesc_git = "<leader>b Git operations"
 let g:WhichKeyDesc_git_commit = "<leader>bc Open Git commit dialog"
 let g:WhichKeyDesc_git_status = "<leader>bs Open Git status dialog"
 let g:WhichKeyDesc_git_branches = "<leader>bg Open Git branches list"
+" Which-key description for Git history
+let g:WhichKeyDesc_git_history = "<leader>bh Show Git history for current file"
 
 
 let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
@@ -116,6 +120,7 @@ let g:WhichKeyDesc_alt_pane_left = "<A-h> Move to left pane"
 let g:WhichKeyDesc_alt_pane_right = "<A-l> Move to right pane"
 let g:WhichKeyDesc_alt_pane_up = "<A-k> Move to upper pane"
 let g:WhichKeyDesc_alt_pane_down = "<A-j> Move to lower pane"
+
 
 "" Key mappings
 "" ========================================================
@@ -175,7 +180,7 @@ map <leader>dd <action>(ToggleDistractionFreeMode)
 map <leader>dz <action>(ToggleZenMode)
 map <leader>df <action>(ToggleFullScreen)
 
-" Actions
+" Action
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 
@@ -207,11 +212,14 @@ nmap <leader>gu <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gb <Action>(Back)
 nmap <leader>gf <Action>(Forward)
+" Mapping for showing all methods in the class (equivalent to Ctrl + F12)
+map <leader>gm :action FileStructurePopup<CR>
 
 " Git windows
 map <leader>bc <Action>(CheckinProject)
 map <leader>bs <Action>(ActivateVersionControlToolWindow)
 map <leader>bg <Action>(Git.Branches)
+map <leader>bh <Action>(Git.ShowFileHistoryFromLog)
 
 " Errors
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
