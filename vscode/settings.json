@@ -1,58 +1,22 @@
 {
-  "[xml]": {
-      "editor.defaultFormatter": "DotJoshJohnson.xml"
-  },
-  "python.defaultInterpreterPath": "c:\\Python310\\python.exe",
-  "[sql]": {
-      "editor.defaultFormatter": "ms-mssql.mssql"
-  },
-  "[python]": {
-      "editor.formatOnType": true
-  },
-  "[xslt]": {
-      "editor.semanticHighlighting.enabled": true
-  },
-  "security.workspace.trust.untrustedFiles": "open",
-  "vim.useSystemClipboard": true,
-  "vim.hlsearch": true,
+  "workbench.colorTheme": "Default Dark Modern",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "window.zoomLevel": 1,
+  "git.enableSmartCommit": true,
+  "vim.easymotion": true,
   "vim.incsearch": true,
-  "vim.smartcase": true,
-  "vim.leader": "<SPACE>",
-  "vim.cursorStylePerMode.insert": "line",
-  "vim.scrolloff": 10,
-  "editor.lineNumbers": "relative",
-  "editor.renderWhitespace": "all",
-  "gitlens.historyExplorer.enabled": true,
-  "gitlens.currentLine.enabled": true,
-  "editor.cursorSurroundingLines": 10,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
   "workbench.sideBar.location": "right",
+  "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
-  "vim.normalModeKeyBindingsNonRecursive": [
-      {
-          "before": ["g", "q"],
-          "commands": ["editor.action.formatDocument"]
-      },
-      {
-          "before": ["g", "w", "i", "p"],
-          "commands": ["editor.action.formatDocument"]
-      }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-      {
-          "before": ["="],
-          "commands": ["editor.action.formatSelection"]
-      }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive":   [
-  {
-  "before": ["<space>"],
-  "commands": ["whichkey.show"]
-  }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-  {
-    "before": ["<space>"],
-    "commands": ["whichkey.show"]
-  }
-  ]
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+],
+ "terminal.external.windowsExec": "C:\\Users\\Jazic\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe",
+  "terminal.integrated.defaultProfile.windows": "Windows Terminal"
 }
