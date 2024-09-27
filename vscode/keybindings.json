@@ -45,8 +45,8 @@
   },
   {
     "key": "space e",
-    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible",
-    "command": "workbench.action.toggleSidebarVisibility"
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible"
   },
   {
     "key": "tab",
@@ -57,6 +57,26 @@
     "key": "shift-tab",
     "command": "workbench.action.previousEditorInGroup",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space g d",
+    "command": "gitlens.diffWithPrevious",
+    "when": "vim.mode == 'Normal' && editorTextFocus && gitOpenRepositoryCount > 0 && !inQuickOpen"
+  },
+  {
+    "key": "space g h",
+    "command": "gitlens.showQuickFileHistory",
+    "when": "vim.mode == 'Normal' && editorTextFocus && gitOpenRepositoryCount > 0"
+  },
+  {
+    "key": "space g t",
+    "command": "gitlens.showRepositoriesView",
+    "when": "vim.mode == 'Normal' && gitOpenRepositoryCount > 0"
+  },
+  {
+    "key": "space g b",
+    "command": "gitlens.showBranchesView",
+    "when": "vim.mode == 'Normal' && gitOpenRepositoryCount > 0"
   },
   // Coding
   {
@@ -75,13 +95,11 @@
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   // Refactoring
-  // Mapping für RenameElement -> "space r n"
   {
     "key": "space r n",
     "command": "editor.action.rename",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-  // Mapping für ExtractMethod -> "space r m"
   {
     "key": "space r m",
     "command": "editor.action.codeAction",
@@ -90,7 +108,6 @@
     },
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-  // Mapping für IntroduceVariable -> "space r v"
   {
     "key": "space r v",
     "command": "editor.action.codeAction",
@@ -99,7 +116,6 @@
     },
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-  // Mapping für IntroduceField -> "space r f"
   {
     "key": "space r f",
     "command": "editor.action.codeAction",
@@ -108,30 +124,28 @@
     },
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-  // Mapping für ChangeSignature -> "space r s"
   {
     "key": "space r s",
     "command": "editor.action.showHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-  // Mapping für QuickListPopupAction -> "space r r"
   {
     "key": "space r r",
     "command": "editor.action.refactor",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space c a",
+    "key": "space s a",
     "command": "editor.action.codeAction",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space c f",
+    "key": "space s f",
     "command": "editor.action.formatDocument",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space b d",
+    "key": "space c",
     "command": "workbench.action.closeActiveEditor",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
@@ -141,19 +155,44 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "space g m",
+    "key": "space s m",
     "command": "workbench.action.gotoSymbol",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space g d",
+    "key": "space s d",
     "command": "editor.action.revealDefinition",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space g u",
+    "key": "space s u",
     "command": "editor.action.goToReferences",
     "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "gd",
+    "command": "editor.action.revealDefinition",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "gD",
+    "command": "editor.action.revealDeclaration",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "gr",
+    "command": "editor.action.goToReferences",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "gi",
+    "command": "editor.action.goToImplementation",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "gm",
+    "command": "workbench.action.gotoSymbol",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   {
     "key": "space f f",
@@ -274,5 +313,10 @@
     "key": "space w u",
     "command": "workbench.action.closeActiveEditor",
     "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space",
+    "command": "-",
+    "when": "vim.mode == 'Insert'"
   }
 ]
