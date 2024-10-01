@@ -1,6 +1,3 @@
-"" .ideavimrc - Matt Chapman
-
-
 "" Base Settings
 "" ========================================================
 
@@ -20,7 +17,6 @@ set wildmenu
 set clipboard+=unnamed   
 
 let mapleader = " "
-
 
 "" Plugin Settings
 "" ========================================================
@@ -111,6 +107,8 @@ let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
 let g:WhichKeyDesc_tests = "<leader>t Test operations"
 let g:WhichKeyDesc_test_method = "<leader>tm Run test method under caret"
 let g:WhichKeyDesc_test_class = "<leader>tc Run all tests in class"
+let g:WhichKeyDesc_test_class = "<leader>tt opens terminal"
+let g:WhichKeyDesc_test_class = "<leader>te focus to editor"
 
 " Alt-key combinations in the main which-key menu
 let g:WhichKeyDesc_alt = "<leader>o Alt key shortcuts"
@@ -214,6 +212,7 @@ nmap <leader>gb <Action>(Back)
 nmap <leader>gf <Action>(Forward)
 " Mapping for showing all methods in the class (equivalent to Ctrl + F12)
 map <leader>gm :action FileStructurePopup<CR>
+map <leader>gf :action FindUsages<CR>
 
 " Git windows
 map <leader>bc <Action>(CheckinProject)
@@ -224,14 +223,16 @@ map <leader>bh <Action>(Git.ShowFileHistoryFromLog)
 " Errors
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
 map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
-
+" Terminal
+map <leader>tt :action Terminal<CR>
+map <leader>te :action FocusEditor<CR>
 " Test mappings
 map <leader>tm :action RunTestUnderCaret<CR>
 map <leader>tc :action RunContextTest<CR>
 
-noremap <leader>tt :echo "Leader key works!!!"<CR>
+noremap <leader>tw :echo "Leader key works!!!"<CR>
 " open config
 noremap <leader>cc :edit ~/.ideavimrc<cr>
 
 " source config
-noremap <leader>cs :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
+noremap <leader>cs :source ~/.ideavimrc<cr>:echm "file reloaded"<cr>
