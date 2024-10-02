@@ -19,7 +19,7 @@
   {
     "key": "space ,",
     "command": "workbench.action.showAllEditors",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
     "key": "space e",
@@ -30,7 +30,7 @@
         "workbench.files.action.focusFilesExplorer"
       ]
     },
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus && !terminalFocus"
   },
   {
     "key": "space e",
@@ -41,7 +41,7 @@
         "workbench.action.focusActiveEditorGroup"
       ]
     },
-    "when": "sideBarFocus && !inputFocus"
+    "when": "sideBarFocus && !inputFocus && !terminalFocus"
   },
   {
     "key": "space e",
@@ -274,10 +274,10 @@
     }
   },
   {
-    "key": "l g",
+    "key": "ctrl+alt+g",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "wt -d ${fileDirname} lg\r"
+      "text": "wt -d ${fileDirname} lgzygit\r"
     },
     "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
   },
@@ -317,6 +317,15 @@
   {
     "key": "space",
     "command": "-",
-    "when": "vim.mode == 'Insert'"
+    "when": "vim.mode == 'Insert' && !terminalFocus"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "workbench.action.showCommands"
   }
 ]
