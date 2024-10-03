@@ -277,7 +277,7 @@
     "key": "ctrl+alt+g",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "wt -d ${fileDirname} lgzygit\r"
+      "text": "wt -d ${fileDirname} lg\r"
     },
     "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
   },
@@ -327,5 +327,22 @@
   {
     "key": "ctrl+shift+p",
     "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "space shift+7",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "space shift+7",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && vim.mode == 'Visual'"
+  },
+  {
+    "key": "space shift+7",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && vim.mode == 'VisualLine'"
   }
+
 ]
+
