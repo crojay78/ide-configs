@@ -200,17 +200,6 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "space g g",
-    "command": "runCommands",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)",
-    "args": {
-      "commands": [
-        "workbench.view.scm",
-        "workbench.scm.focus"
-      ]
-    }
-  },
-  {
     "key": "space n",
     "command": "workbench.action.files.newUntitledFile",
     "when": "vim.mode == 'Normal' && editorTextFocus"
@@ -274,7 +263,7 @@
     }
   },
   {
-    "key": "ctrl+alt+g",
+    "key": "space g g",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
       "text": "wt -d ${fileDirname} lazygit\r"
@@ -343,6 +332,4 @@
     "command": "editor.action.commentLine",
     "when": "editorTextFocus && vim.mode == 'VisualLine'"
   }
-
 ]
-
