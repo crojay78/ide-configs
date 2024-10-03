@@ -277,7 +277,7 @@
     "key": "ctrl+alt+g",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "wt -d ${fileDirname} lg\r"
+      "text": "wt -d ${fileDirname} lazygit\r"
     },
     "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
   },
