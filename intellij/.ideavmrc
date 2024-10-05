@@ -14,9 +14,10 @@ set visualbell
 set wildmenu
 
 " Use system clipboard
-set clipboard+=unnamed   
+set clipboard+=unnamed
 
 let mapleader = " "
+
 
 "" Plugin Settings
 "" ========================================================
@@ -34,106 +35,21 @@ let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
 
-let g:WhichKeyDesc_leader = "<leader> Leader key"
-
-let g:WhichKeyDesc_leader = "<leader>x Open file explorer"
-
-let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
-let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
-
-let g:WhichKeyDesc_comment = "<leader>c Comment line"
-
-let g:WhichKeyDesc_fold = "<leader>z Folding"
-let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
-let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
-
-let g:WhichKeyDesc_window = "<leader>w Window splits"
-let g:WhichKeyDesc_window_split_vertically = "<leader>wv Split vertically"
-let g:WhichKeyDesc_window_split_horizontally = "<leader>wh Split horizontally"
-let g:WhichKeyDesc_window_split_unsplit = "<leader>wu Unsplit"
-let g:WhichKeyDesc_window_split_move_editor = "<leader>wm Move editor to opposite tab group"
-
-
-let g:WhichKeyDesc_display = "<leader>d Display options"
-let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
-let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
-let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
-
-let g:WhichKeyDesc_action= "<leader>a Actions"
-let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
-let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
-
-let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
-
-let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
-let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
-let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
-let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
-let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
-
-let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
-
-let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
-let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
-let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
-let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
-let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
-let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
-let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
-
-let g:WhichKeyDesc_goto = "<leader>g Go to X"
-let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
-let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
-let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
-let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
-let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
-let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
-let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
-let g:WhichKeyDesc_goto_method = "<leader>gm Show all methods in class"
-
-
-let g:WhichKeyDesc_git = "<leader>b Git operations"
-let g:WhichKeyDesc_git_commit = "<leader>bc Open Git commit dialog"
-let g:WhichKeyDesc_git_status = "<leader>bs Open Git status dialog"
-let g:WhichKeyDesc_git_branches = "<leader>bg Open Git branches list"
-" Which-key description for Git history
-let g:WhichKeyDesc_git_history = "<leader>bh Show Git history for current file"
-
-
-let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
-let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
-
-" Which-key descriptions for tests
-let g:WhichKeyDesc_tests = "<leader>t Test operations"
-let g:WhichKeyDesc_test_method = "<leader>tm Run test method under caret"
-let g:WhichKeyDesc_test_class = "<leader>tc Run all tests in class"
-let g:WhichKeyDesc_test_class = "<leader>tt opens terminal"
-let g:WhichKeyDesc_test_class = "<leader>te focus to editor"
-
-" Alt-key combinations in the main which-key menu
-let g:WhichKeyDesc_alt = "<leader>o Alt key shortcuts"
-let g:WhichKeyDesc_alt_next_tab = "<A-n> Go to next tab"
-let g:WhichKeyDesc_alt_prev_tab = "<A-p> Go to previous tab"
-let g:WhichKeyDesc_alt_pane_left = "<A-h> Move to left pane"
-let g:WhichKeyDesc_alt_pane_right = "<A-l> Move to right pane"
-let g:WhichKeyDesc_alt_pane_up = "<A-k> Move to upper pane"
-let g:WhichKeyDesc_alt_pane_down = "<A-j> Move to lower pane"
-
-
 "" Key mappings
 "" ========================================================
 
 inoremap jk <Esc>
 
 " Tab navigation
-nnoremap <A-n> :tabnext<CR>
-nnoremap <A-p> :tabprev<CR>
+" Wechsel zum nächsten Editor-Tab (wie in VS Code 'Tab')
+nnoremap <Tab> :action NextTab<CR>
+" Wechsel zum vorherigen Editor-Tab (wie in VS Code 'Shift-Tab')
+nnoremap <S-Tab> :action PreviousTab<CR>
 
-" Pane navigation
-nnoremap <A-h> <C-w>h
-nnoremap <A-l> <C-w>l
-nnoremap <A-k> <C-w>k
-nnoremap <A-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
 
 " Jump between methods
 nnoremap [[ <Action>(MethodUp)
@@ -161,24 +77,24 @@ map <leader>c <action>(CommentByLineComment)
 map <leader>j <Plug>(easymotion-s)
 
 " Open NERDTree (use q to exit)
-map <leader>x :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
 
 " Folding
 map <leader>zc :action CollapseAllRegions<CR>
 map <leader>zo :action ExpandAllRegions<CR>
 
 " Window splits
-map <leader>wv <Action>(SplitVertically)
-map <leader>ws <Action>(SplitHorizontally)
-map <leader>wu <Action>(Unsplit)
-map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+map <C-w>v <Action>(SplitVertically)
+map <C-w>s <Action>(SplitHorizontally)
+map <C-w>u <Action>(Unsplit)
+map <C-w>m <Action>(MoveEditorToOppositeTabGroup)
 
 " Display options
 map <leader>dd <action>(ToggleDistractionFreeMode)
 map <leader>dz <action>(ToggleZenMode)
 map <leader>df <action>(ToggleFullScreen)
 
-" Action
+" ActionFOOO
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 
@@ -192,7 +108,7 @@ map <leader>fs <action>(NewScratchFile)
 
 
 " Close active tab
-map <leader>q <action>(CloseContent)
+map <leader>c <action>(CloseContent)
 
 " Refactoring
 map <leader>rn <Action>(RenameElement)
@@ -208,11 +124,12 @@ nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
 nmap <leader>gu <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
-nmap <leader>gb <Action>(Back)
-nmap <leader>gf <Action>(Forward)
+" Back / Forward
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
 " Mapping for showing all methods in the class (equivalent to Ctrl + F12)
 map <leader>gm :action FileStructurePopup<CR>
-map <leader>gf :action FindUsages<CR>
 
 " Git windows
 map <leader>bc <Action>(CheckinProject)
@@ -223,16 +140,20 @@ map <leader>bh <Action>(Git.ShowFileHistoryFromLog)
 " Errors
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
 map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
-" Terminal
-map <leader>tt :action Terminal<CR>
-map <leader>te :action FocusEditor<CR>
+
 " Test mappings
 map <leader>tm :action RunTestUnderCaret<CR>
 map <leader>tc :action RunContextTest<CR>
 
-noremap <leader>tw :echo "Leader key works!!!"<CR>
+noremap <leader>tt :echo "Leader key works!!!"<CR>
 " open config
 noremap <leader>cc :edit ~/.ideavimrc<cr>
 
 " source config
-noremap <leader>cs :source ~/.ideavimrc<cr>:echm "file reloaded"<cr>
+noremap <leader>lc :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
+
+
+" lazygit aufrufen
+" erfodert anlegen eines external tools das wt aufruft mit dem befehl lazygit working dir: $FileDir$ arguments -d $FileDir$ lazygit
+map <leader>gg :action ExternalTools.LazyGit<CR>
+
