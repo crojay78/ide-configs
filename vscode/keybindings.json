@@ -23,24 +23,24 @@
   },
   {
     "key": "space e",
-    "command": "runCommands",
     "args": {
       "commands": [
         "workbench.action.toggleSidebarVisibility",
         "workbench.files.action.focusFilesExplorer"
       ]
     },
+    "command": "runCommands",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus && !terminalFocus"
   },
   {
     "key": "space e",
-    "command": "runCommands",
     "args": {
       "commands": [
         "workbench.action.toggleSidebarVisibility",
         "workbench.action.focusActiveEditorGroup"
       ]
     },
+    "command": "runCommands",
     "when": "sideBarFocus && !inputFocus && !terminalFocus"
   },
   {
@@ -96,32 +96,32 @@
   },
   // Refactoring
   {
-    "key": "space r n",
+    "key": "space r r",
     "command": "editor.action.rename",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "key": "space r m",
-    "command": "editor.action.codeAction",
     "args": {
       "kind": "refactor.extract.method"
     },
+    "command": "editor.action.codeAction",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "key": "space r v",
-    "command": "editor.action.codeAction",
     "args": {
       "kind": "refactor.extract.variable"
     },
+    "command": "editor.action.codeAction",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space r f",
-    "command": "editor.action.codeAction",
+    "key": "space r c",
     "args": {
       "kind": "refactor.extract.constant"
     },
+    "command": "editor.action.codeAction",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
@@ -130,7 +130,7 @@
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space r r",
+    "key": "space r a",
     "command": "editor.action.refactor",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
@@ -206,7 +206,7 @@
   },
   {
     "key": "ctrl-n",
-    "command": "editor.action.addSelectionToNextFindMatch",
+    "command": "editor.action.   dSelectionToNextFindMatch",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   // File Explorer
@@ -252,22 +252,22 @@
   },
   {
     "key": "shift-s",
-    "command": "runCommands",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus",
     "args": {
       "commands": [
         "workbench.action.splitEditorDown",
         "explorer.openAndPassFocus",
         "workbench.action.closeOtherEditors"
       ]
-    }
+    },
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "space g g",
-    "command": "workbench.action.terminal.sendSequence",
     "args": {
       "text": "wt -d ${fileDirname} lazygit\r"
     },
+    "command": "workbench.action.terminal.sendSequence",
     "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
   },
   {
@@ -277,10 +277,10 @@
   },
   {
     "key": "space t t",
-    "command": "workbench.action.terminal.newWithCwd",
     "args": {
       "cwd": "${fileDirname}"
     },
+    "command": "workbench.action.terminal.newWithCwd",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
@@ -306,7 +306,7 @@
   {
     "key": "space",
     "command": "-",
-    "when": "vim.mode == 'Insert' && !terminalFocus"
+    "when": "findWidgetVisible || vim.mode == 'Insert' || vim.mode == 'CommandlineInProgress' && !terminalFocus"
   },
   {
     "key": "ctrl+w",
@@ -315,6 +315,10 @@
   },
   {
     "key": "ctrl+shift+p",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "space s c",
     "command": "workbench.action.showCommands"
   },
   {
@@ -331,5 +335,11 @@
     "key": "space shift+7",
     "command": "editor.action.commentLine",
     "when": "editorTextFocus && vim.mode == 'VisualLine'"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "actions.find",
+    "when": "editorTextFocus"
   }
+
 ]

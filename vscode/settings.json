@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorTheme": "Def   ult Dark Modern",
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "window.zoomLevel": 1,
   "git.enableSmartCommit": true,
@@ -18,5 +18,9 @@
     }
 ],
  "terminal.external.windowsExec": "C:\\Users\\Jazic\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe",
-  "terminal.integrated.defaultProfile.windows": "Windows Terminal"
+  "terminal.integrated.defaultProfile.windows": "Windows Terminal",
+  "vim.handleKeys": {
+    "<Space>": false
+}
+
 }
