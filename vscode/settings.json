@@ -17,10 +17,12 @@
       "after": ["<Esc>"]
     }
 ],
- "terminal.external.windowsExec": "C:\\Users\\Jazic\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe",
+  "terminal.external.windowsExec": "C:\\Users\\Jazic\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe",
   "terminal.integrated.defaultProfile.windows": "Windows Terminal",
+  "vim.leader": " ",
+  "vim.leaderModes": ["normal", "visual"],
   "vim.handleKeys": {
     "<Space>": false
-}
+  }
 
 }
