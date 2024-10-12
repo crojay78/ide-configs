@@ -54,6 +54,16 @@
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   {
+    "key": "space z c",
+    "command": "editor.foldAll",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
+  },
+  {
+    "key": "space z o",
+    "command": "editor.unfoldAll",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
+  },
+  {
     "key": "shift-tab",
     "command": "workbench.action.previousEditorInGroup",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
@@ -79,6 +89,11 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
   },
   // Coding
+  {
+    "key": "K",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
   {
     "key": "shift-j",
     "command": "editor.action.moveLinesDownAction",
@@ -169,6 +184,12 @@
     "command": "editor.action.goToReferences",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
+  {
+    "key": "gr",
+    "command": "editor.action.referenceSearch.trigger",
+    "when": "editorTextFocus"
+  },
+
   {
     "key": "gd",
     "command": "editor.action.revealDefinition",

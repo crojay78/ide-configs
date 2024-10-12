@@ -39,7 +39,7 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 "" ========================================================
 
 inoremap jk <Esc>
-
+imap jj <Esc>
 " Tab navigation
 " Wechsel zum nächsten Editor-Tab (wie in VS Code 'Tab')
 nnoremap <Tab> :action NextTab<CR>
@@ -50,6 +50,13 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
+
+
+" Verschiebe Zeilen nach unten im visuellen Linienmodus
+vmap J :m '>+1<CR>gv=gv
+" Verschiebe Zeilen nach oben im visuellen Linienmodus
+vmap K :m '<-2<CR>gv=gv
+
 
 " Jump between methods
 nnoremap [[ <Action>(MethodUp)
@@ -71,7 +78,7 @@ inoremap <C-k> <Action>(PopupMenu-selectPrev)
 "" ========================================================
 
 " Comment lines
-map <leader>c <action>(CommentByLineComment)
+map <leader>/ <action>(CommentByLineComment)
 
 " Jump around with easymotion
 map <leader>j <Plug>(easymotion-s)
@@ -120,14 +127,18 @@ map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
 " Go to code
 nmap <leader>gd <Action>(GotoDeclaration)
+nmap gd <Action>(GotoDeclaration)
 nmap <leader>gy <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
+nmap gI <Action>(GotoImplementation)
+nmap gr <Action>FindUsages<CR>
 nmap <leader>gu <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
 " Back / Forward
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
-
+* show context info
+nmap K :action ShowContextInfo<CR>
 " Mapping for showing all methods in the class (equivalent to Ctrl + F12)
 map <leader>gm :action FileStructurePopup<CR>
 
@@ -154,6 +165,5 @@ noremap <leader>lc :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
 
 
 " lazygit aufrufen
-" erfodert anlegen eines external tools das wt aufruft mit dem befehl lazygit working dir: $FileDir$ arguments -d $FileDir$ lazygit
 map <leader>gg :action ExternalTools.LazyGit<CR>
 
