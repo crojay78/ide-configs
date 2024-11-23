@@ -1,66 +1,46 @@
-"" Base Settings
-"" ========================================================
+let mapleader = " "
 
-set scrolloff=10
+""Plugins
+"" ========================================================
+set incsearch
+set ignorecase
+set smartcase
+set which-key
+set surround
+set hlsearch
+set nerdtree
+
+" settings
+set highlightedyank
+set visualbell
+set wildmenu
+set easymotion
+set notimeout
+set clipboard=unnamedplus,unnamed,ideaput
 set relativenumber
 set showmode
 set showcmd
-
-set smartcase
-set incsearch
-set hlsearch
-
-set visualbell
-set wildmenu
-
-" Use system clipboard
-set clipboard+=unnamed
-
-let mapleader = " "
-
-
-"" Plugin Settings
-"" ========================================================
-
-set nerdtree
-set surround
-set highlightedyank
-" Easymotion settings
-set easymotion
-set notimeout
-" Which-key settings
-set which-key
-let g:WhichKey_FontSize = 16
-let g:WhichKey_CommandColor = "#41ead4"
-let g:WhichKey_PrefixColor = "#f335b2"
-let g:WhichKey_SortOrder = "by_key_prefix_first"
-
-"" Key mappings
-"" ========================================================
-
+set scrolloff=10
+" which key settings
+" ncrease the timeoutlen (default: 1000), don't add space around the equal sign
+set timeoutlen=1000
 inoremap jk <Esc>
 imap jj <Esc>
 " Tab navigation
 " Wechsel zum nächsten Editor-Tab (wie in VS Code 'Tab')
-nnoremap <Tab> :action NextTab<CR>
+"nnoremap <Tab> :action NextTab<CR>
 " Wechsel zum vorherigen Editor-Tab (wie in VS Code 'Shift-Tab')
-nnoremap <S-Tab> :action PreviousTab<CR>
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-k> <C-w>k
-nnoremap <C-j> <C-w>j
-
-
-" Verschiebe Zeilen nach unten im visuellen Linienmodus
+"nnoremap <S-Tab> :action PreviousTab<CR>
+" Switch to Other Buffer
+nnoremap <leader>bb <C-^>
+" Previous Buffer
+nmap <S-h> :action PreviousTab<CR>
+" Next Buffer
+nmap <S-l> :action NextTab<CR>
+ " Verschiebe Zeilen nach unten im visuellen Linienmodus
 vmap J :m '>+1<CR>gv=gv
 " Verschiebe Zeilen nach oben im visuellen Linienmodus
 vmap K :m '<-2<CR>gv=gv
-
-
-" Jump between methods
-nnoremap [[ <Action>(MethodUp)
-nnoremap ]] <Action>(MethodDown)
 
 " Easy visual indentation
 vnoremap < <gv
@@ -70,8 +50,7 @@ vnoremap > >gv
 nnoremap qj @q
 
 " Popup navigation
-inoremap <C-j> <Action>(PopupMenu-selectNext)
-inoremap <C-k> <Action>(PopupMenu-selectPrev)
+" inoremap <C-j> <Action>(PopupMenu-selectNext) " inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 
 "" Leader commands
@@ -91,10 +70,8 @@ map <leader>zc :action CollapseAllRegions<CR>
 map <leader>zo :action ExpandAllRegions<CR>
 
 " Window splits
-map <C-w>v <Action>(SplitVertically)
-map <C-w>s <Action>(SplitHorizontally)
-map <C-w>u <Action>(Unsplit)
-map <C-w>m <Action>(MoveEditorToOppositeTabGroup)
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(MoveEditorToOppositeTabGroup)
 
 " Display options
 map <leader>dd <action>(ToggleDistractionFreeMode)
@@ -105,42 +82,91 @@ map <leader>df <action>(ToggleFullScreen)
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 
-" File navigation
+" Which Key Eintrag für <leader>f
+let g:WhichKeyDesc_leader_f = "<leader>f File / Navigation"
+let g:WhichKeyDesc_leader_ff = "<leader>ff Goto File"
+let g:WhichKeyDesc_leader_fr = "<leader>fr Recent Files"
+let g:WhichKeyDesc_leader_fc = "<leader>fc Find In Path"
+let g:WhichKeyDesc_leader_leader = "<leader><leader> Search Everywhere"
+let g:WhichKeyDesc_leader_fl = "<leader>fl Recent Locations"
+let g:WhichKeyDesc_leader_fs = "<leader>fs New Scratch File"
+let g:WhichKeyDesc_leader_fC = "<leader>fC Goto Action"
+" File navigation / searches
 map <leader>ff <action>(GotoFile)
 map <leader>fr <action>(RecentFiles)
 map <leader>fc <action>(FindInPath)
-map <leader><leader> <Action>(RecentFiles)
+map <leader><leader> <action>(SearchEverywhere)
 map <leader>fl <action>(RecentLocations)
 map <leader>fs <action>(NewScratchFile)
+map <leader>fC <action>(GotoAction)
 
 
 " Close active tab
 map <leader>c <action>(CloseContent)
 
 " Refactoring
-map <leader>rn <Action>(RenameElement)
-map <leader>rm <Action>(ExtractMethod)
-map <leader>rv <Action>(IntroduceVariable)
-map <leader>rf <Action>(IntroduceField)
-map <leader>rs <Action>(ChangeSignature)
-map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+" Which Key Eintrag für <leader>r
+let g:WhichKeyDesc_leader_r = "<leader>r Refactor"
+let g:WhichKeyDesc_leader_rr = "<leader>rr Rename Element"
+let g:WhichKeyDesc_leader_rm = "<leader>rm Extract Method"
+let g:WhichKeyDesc_leader_rv = "<leader>rv Extract Variable"
+let g:WhichKeyDesc_leader_rf = "<leader>rf Introduce Field"
+let g:WhichKeyDesc_leader_ri = "<leader>ri Inline Variable"
+let g:WhichKeyDesc_leader_ra = "<leader>ra Refactor Actions"
+let g:WhichKeyDesc_leader_rs = "<leader>rs Change Signature"
+let g:WhichKeyDesc_leader_rj = "<leader>rj Move Statement Down"
+let g:WhichKeyDesc_leader_rk = "<leader>rk Move Statement Up"
+let g:WhichKeyDesc_leader_rq = "<leader>rq Quick List Popup"
 
+" IdeaVim Refactoring Keymaps
+" Alle Refactoring-Operationen mit <leader>r als Prefix
+" Rename Element
+map <leader>rr :action RenameElement<CR>
+" Extract Method vmap <leader>rm :action ExtractMethod<CR>
+" Extract Variable
+vmap <leader>rv :action IntroduceVariable<CR>
+" Introduce Field
+vmap <leader>rf :action IntroduceField<CR>
+" Inline Variable (falls verfügbar)
+map <leader>ri :action InlineVariable<CR>
+" Refactor Actions (Code Actions)
+map <leader>ra :action ShowIntentionActions<CR>
+" Change Function Signature
+map <leader>rs :action ChangeSignature<CR>
+" Move Statement (auf/ab verschieben, falls verfügbar)
+map <leader>rj :action MoveStatementDown<CR>
+map <leader>rk :action MoveStatementUp<CR>
+" Quick List Popup für Refactorings (falls unterstützt)
+map <leader>rq :action Refactorings.QuickListPopupAction<CR>
+
+map <leader>lf <action>(ReformatCode) j
+" Which Key Eintrag für <leader>g
+let g:WhichKeyDesc_leader_g = "<leader>g +GoTo"
+let g:WhichKeyDesc_leader_gr = "<leader>gr Find Usages"
+let g:WhichKeyDesc_leader_gd = "<leader>gd Go to Declaration"
+let g:WhichKeyDesc_leader_gy = "<leader>gy Go to Type Declaration"
+let g:WhichKeyDesc_leader_gI = "<leader>gI Go to Implementation"
+let g:WhichKeyDesc_leader_gu = "<leader>gu Show Usages"
+let g:WhichKeyDesc_leader_gt = "<leader>gt Go to Test"
 " Go to code
-nmap <leader>gd <Action>(GotoDeclaration)
-nmap gd <Action>(GotoDeclaration)
-nmap <leader>gy <Action>(GotoTypeDeclaration)
-nmap <leader>gi <Action>(GotoImplementation)
-nmap gI <Action>(GotoImplementation)
-nmap gr <Action>FindUsages<CR>
-nmap <leader>gu <Action>(ShowUsages)
-nmap <leader>gt <Action>(GotoTest)
+nmap gr :action FindUsages<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap gy :action GotoTypeDeclaration<CR>
+nmap gI :action GotoImplementation<CR>
+nmap gK <Action>(ParameterInfo)
+nmap gd :action GotoDeclaration<CR>
+nmap gu :action ShowUsages<CR>
+nmap gt :action GotoTest<CR>
+" Mapping for showing all methods in the class (equivalent to Ctrl + F12)
+map gm :action FileStructurePopup<CR>
+
+
+" Which Key Eintrag für Back/Forward
+let g:WhichKeyDesc_C_o = "<C-o> Back"
+let g:WhichKeyDesc_C_i = "<C-i> Forward"
 " Back / Forward
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
-* show context info
-nmap K :action ShowContextInfo<CR>
-" Mapping for showing all methods in the class (equivalent to Ctrl + F12)
-map <leader>gm :action FileStructurePopup<CR>
 
 " Git windows
 map <leader>bc <Action>(CheckinProject)
@@ -157,13 +183,40 @@ map <leader>tm :action RunTestUnderCaret<CR>
 map <leader>tc :action RunContextTest<CR>
 
 noremap <leader>tt :echo "Leader key works!!!"<CR>
-" open config
-noremap <leader>cc :edit ~/.ideavimrc<cr>
-
-" source config
-noremap <leader>lc :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
-
-
+" open config noremap <leader>ve :edit ~/.ideavimrc<cr> " source config
+noremap <leader>vv :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
 " lazygit aufrufen
 map <leader>gg :action ExternalTools.LazyGit<CR>
 
+sethandler <C-B> a:vim
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:vim
+sethandler <C-H> a:vim
+
+sethandler <C-O> a:vim
+sethandler <C-R> a:vim
+
+" Allgemeine Navigation zwischen Fenstern und Tabs (angepasst für IntelliJ IDEA)
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+" Unterstützung für Wechsel zwischen Tabgruppen
+nnoremap <C-PageUp> :action SelectPreviousTab<CR>
+nnoremap <C-PageDown> :action SelectNextTab<CR>
+
+" Split wie in astrovim
+nnoremap \ :split<CR>
+nnoremap \| :vsplit<CR>
+
+nnoremap sd :action ShowDocumentation<CR>
+" ----- Tests ----------
+" Führt alle Tests der aktuellen Klasse aus
+" Führt den Test der aktuellen Methode aus
+nnoremap <leader>tc :action RunClass<CR>
+" Führt den zuletzt ausgeführten Test erneut aus
+nnoremap <leader>tr :action Run<CR>
+" Run All Test Files
+nnoremap <leader>ts :action ShowTestSummary<CR>
