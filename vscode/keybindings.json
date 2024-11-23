@@ -1,17 +1,4 @@
-[
-  // Navigation
-  {
-    "key": "ctrl-h",
-    "command": "workbench.action.navigateLeft"
-  },
-  {
-    "key": "ctrl-l",
-    "command": "workbench.action.navigateRight"
-  },
-  {
-    "key": "ctrl-k",
-    "command": "workbench.action.navigateUp"
-  },
+,
   {
     "key": "ctrl-j",
     "command": "workbench.action.navigateDown"
@@ -49,11 +36,6 @@
     "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible"
   },
   {
-    "key": "tab",
-    "command": "workbench.action.nextEditorInGroup",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
-  },
-  {
     "key": "space z c",
     "command": "editor.foldAll",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
@@ -64,7 +46,12 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
   },
   {
-    "key": "shift-tab",
+    "key": "shift+l",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "shift+h",
     "command": "workbench.action.previousEditorInGroup",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
@@ -90,7 +77,7 @@
   },
   // Coding
   {
-    "key": "K",
+    "key": "shift k",
     "command": "editor.action.showHover",
     "when": "editorTextFocus && vim.mode == 'Normal'"
   },
@@ -330,11 +317,6 @@
     "when": "vim.mode == 'Insert' && editorTextFocus"
   },
   {
-    "key": "ctrl+w",
-    "command": "workbench.action.terminal.kill",
-    "when": "terminalFocus"
-  },
-  {
     "key": "ctrl+shift+p",
     "command": "workbench.action.showCommands"
   },
@@ -358,10 +340,72 @@
     "command": "editor.action.commentLine",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
+  //default ctrl +  mappings von vim
+ {
+      "key": "ctrl+b",
+      "command": "scrollPageUp",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
   {
-    "key": "ctrl+f",
-    "command": "actions.find",
+      "key": "ctrl+d",
+      "command": "scrollPageDown",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'" 
+  },
+  {
+      "key": "ctrl+e",
+      "command": "scrollLineUp",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+      "key": "ctrl+f",
+      "command": "actions.find",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+      "key": "ctrl+w",
+      "command": "vim.remap",
+      "when": "editorTextFocus && vim.mode != 'Insert'"
+  },
+  {
+      "key": "ctrl+s v",
+      "command": "workbench.action.splitEditorRight",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+      "key": "ctrl+s h",
+      "command": "workbench.action.splitEditorDown",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+      "key": "ctrl+w q",
+      "command": "workbench.action.closeActiveEditor",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+      "key": "ctrl+w m",
+      "command": "workbench.action.moveEditorToNextGroup",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+      "key": "ctrl+w shift+m",
+      "command": "workbench.action.moveEditorToPreviousGroup",
+      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.files.save",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+ctrl+n",
+    "command": "cursorUndo",
     "when": "editorTextFocus"
   }
+
 
 ]
