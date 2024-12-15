@@ -1,4 +1,17 @@
-,
+[
+  // Navigation
+  {
+    "key": "ctrl-h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl-l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl-k",
+    "command": "workbench.action.navigateUp"
+  },
   {
     "key": "ctrl-j",
     "command": "workbench.action.navigateDown"
@@ -202,9 +215,19 @@
     "command": "workbench.action.gotoSymbol",
     "when": "editorTextFocus && vim.mode == 'Normal'"
   },
+    {
+    "key": "space f",
+    "command": "workbench.action.findInFiles",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
   {
     "key": "space f f",
-    "command": "workbench.action.findInFiles",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space f r",
+    "command": "workbench.action.openRecent",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
@@ -241,7 +264,7 @@
   {
     "key": "d",
     "command": "deleteFile",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "a",
@@ -292,12 +315,12 @@
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space w v",
+    "key": "\\|",
     "command": "workbench.action.splitEditorRight",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space w s",
+    "key": "\\\\",
     "command": "workbench.action.splitEditorDown",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
