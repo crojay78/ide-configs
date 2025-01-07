@@ -136,7 +136,7 @@ noremap <leader>tt :echo "Leader key works!!!"<CR>
 " open config noremap <leader>ve :edit ~/.ideavimrc<cr> " source config
 noremap <leader>vv :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
 " lazygit aufrufen
-"  map <leader>gg :action ExternalTools.LazyGit<CR>
+map <leader>gg :action ExternalTools.LazyGit<CR>
 
 sethandler <C-B> a:vim
 sethandler <C-D> a:vim
@@ -167,3 +167,4 @@ nnoremap <leader>wv :vsplit<CR>
 
 nnoremap sd :action ShowDocumentation<CR>
 map <leader>oi :action OptimizeImports<CR>
+map <leader>pv :action SelectInProjectView<CR>
