@@ -1,76 +1,58 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = " "
 
-""Plugins
-"" ========================================================
 set incsearch
 set ignorecase
 set smartcase
-set surround
 set hlsearch
-set nerdtree
-
-" settings
-set highlightedyank
-set visualbell
-set wildmenu
-set notimeout
-set clipboard=unnamedplus,unnamed,ideaput
 set relativenumber
 set showmode
 set showcmd
 set scrolloff=10
-" which key settings
-" ncrease the timeoutlen (default: 1000), don't add space around the equal sign
 set timeoutlen=1000
+set visualbell
+set wildmenu
+set notimeout
+set clipboard=unnamedplus,unnamed,ideaput
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set surround
+set nerdtree
+set highlightedyank
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings - General Navigation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Escape mappings
 inoremap jk <Esc>
 imap jj <Esc>
-" Tab navigation
-" Wechsel zum nächsten Editor-Tab (wie in VS Code 'Tab')
-"nnoremap <Tab> :action NextTab<CR>
-" Wechsel zum vorherigen Editor-Tab (wie in VS Code 'Shift-Tab')
-"nnoremap <S-Tab> :action PreviousTab<CR>
-" Switch to Other Buffer
+
+" Buffer navigation
 nnoremap <leader>bb <C-^>
-" Previous Buffer
 nmap <S-h> :action PreviousTab<CR>
-" Next Buffer
 nmap <S-l> :action NextTab<CR>
- " Verschiebe Zeilen nach unten im visuellen Linienmodus
-vmap J :m '>+1<CR>gv=gv
-" Verschiebe Zeilen nach oben im visuellen Linienmodus
-vmap K :m '<-2<CR>gv=gv
 
-" Easy visual indentation
-vnoremap < <gv
-vnoremap > >gv
+" Window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
 
-" Execute macro saved in 'q' register
-nnoremap qj @q
+" Tab navigation
+nnoremap <C-PageUp> :action SelectPreviousTab<CR>
+nnoremap <C-PageDown> :action SelectNextTab<CR>
 
-" Popup navigation
-" inoremap <C-j> <Action>(PopupMenu-selectNext) " inoremap <C-k> <Action>(PopupMenu-selectPrev)
+" Back / Forward
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
 
-""symotion-s)symotion-s) Leader commands
-"" ========================================================
-map <leader>/ <action>(CommentByLineComment)
-
-" Opensymotion-s) NERDTree (use q to exit)
-map <leader>e :NERDTreeToggle<CR>
-
-" Folding
-map <leader>zc :action CollapseAllRegions<CR>
-map <leader>zo :action ExpandAllRegions<CR>
-
-" Action
-map <leader>am <action>(ShowIntentionActions)
-map <leader>as <action>(SearchEverywhere)
-
-" Display options
-map <leader>dd <action>(ToggleDistractionFreeMode)
-map <leader>dz <action>(ToggleZenMode)
-map <leader>df <action>(ToggleFullScreen)
-" Which Key Eintrag für <leader>f
-" File navigation / searches
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings - File and Code Navigation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>ff <action>(GotoFile)
 map <leader>fr <action>(RecentFiles)
 map <leader>fp <action>(FindInPath)
@@ -80,12 +62,19 @@ map <leader>fa <action>(GotoAction)
 map <leader>fc <action>(GotoClass)
 map <leader><leader> <action>(SearchEverywhere)
 
+nmap gr :action FindUsages<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap gh :action ShowHierarchy<CR>
+nmap gy :action GotoTypeDeclaration<CR>
+nmap gI :action GotoImplementation<CR>
+nmap gu :action ShowUsages<CR>
+nmap gt :action GotoTest<CR>
+nmap gK <Action>(ParameterInfo)
+map gm :action FileStructurePopup<CR>
 
-" Close active tab
-map <leader>c <action>(CloseContent)
-
-" Refactoring
-" Which Key Eintrag für <leader>r
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings - Refactoring and Code Actions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>rr :action RenameElement<CR>
 vmap <leader>rv :action IntroduceVariable<CR>
 vmap <leader>rf :action IntroduceField<CR>
@@ -98,64 +87,42 @@ map <leader>rk :action MoveStatementUp<CR>
 map <leader>rq :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>rg :action Generate<CR>
 
-
 map <leader>lf <action>(ReformatCode)
-nmap gr :action FindUsages<CR>
-nmap gd :action GotoDeclaration<CR>
-nmap gh :action ShowHierarchy<CR>
-nmap gy :action GotoTypeDeclaration<CR>
-nmap gI :action GotoImplementation<CR>
-nmap gu :action ShowUsages<CR>
-nmap gt :action GotoTest<CR>
-nmap gK <Action>(ParameterInfo)
-map gm :action FileStructurePopup<CR>
+map <leader>oi :action OptimizeImports<CR>
+map <leader>pv :action SelectInProjectView<CR>
 
-" Back / Forward
-nmap <C-o> <Action>(Back)
-nmap <C-i> <Action>(Forward)
-
-" Git windows
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings - Git
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>bc <Action>(CheckinProject)
 map <leader>bs <Action>(ActivateVersionControlToolWindow)
 map <leader>bg <Action>(Git.Branches)
 map <leader>bh <Action>(Git.ShowFileHistoryFromLog)
+map <leader>gg :action ExternalTools.LazyGit<CR>
 
-" Errors
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings - Errors and Debugging
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
 map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
 map <leader>en :action GotoNextError<CR>
 map <leader>ep :action GotoPreviousError<CR>
 
-" Run Class or Run debug
 map <leader>rc :action RunClass<CR>
 map <leader>rx :action Rerun<CR>
 map <leader>rd :action DebugClass<CR>
 map <leader>tb :action ToggleLineBreakpoint<CR>
 
-noremap <leader>tt :echo "Leader key works!!!"<CR>
-" open config noremap <leader>ve :edit ~/.ideavimrc<cr> " source config
-noremap <leader>vv :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
-" lazygit aufrufen
-map <leader>gg :action ExternalTools.LazyGit<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings - Display and UI
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
 
-sethandler <C-B> a:vim
-sethandler <C-D> a:vim
-sethandler <C-E> a:vim
-sethandler <C-F> a:vim
-sethandler <C-H> a:vim
-
-sethandler <C-O> a:vim
-sethandler <C-R> a:vim
-
-" Allgemeine Navigation zwischen Fenstern und Tabs (angepasst für IntelliJ IDEA)
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-
-" Unterstützung für Wechsel zwischen Tabgruppen
-nnoremap <C-PageUp> :action SelectPreviousTab<CR>
-nnoremap <C-PageDown> :action SelectNextTab<CR>
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
 
 " Window splits
 map <leader>ww <Action>(Unsplit)
@@ -165,6 +132,23 @@ nnoremap <leader>wh :split<CR>
 nnoremap \| :vsplit<CR>
 nnoremap <leader>wv :vsplit<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings - Miscellaneous
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>/ <action>(CommentByLineComment)
+map <leader>e :NERDTreeToggle<CR>
+map <leader>c <action>(CloseContent)
+noremap <leader>tt :echo "Leader key works!!!"<CR>
+noremap <leader>vv :source ~/.ideavimrc<cr>:echo "file reloaded"<cr>
 nnoremap sd :action ShowDocumentation<CR>
-map <leader>oi :action OptimizeImports<CR>
-map <leader>pv :action SelectInProjectView<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Handler Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+sethandler <C-B> a:vim
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:vim
+sethandler <C-H> a:vim
+sethandler <C-O> a:vim
+sethandler <C-R> a:vim
