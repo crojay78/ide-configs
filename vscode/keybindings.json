@@ -1,5 +1,7 @@
 [
+  // ======================
   // Navigation
+  // ======================
   {
     "key": "ctrl-h",
     "command": "workbench.action.navigateLeft"
@@ -17,48 +19,6 @@
     "command": "workbench.action.navigateDown"
   },
   {
-    "key": "space ,",
-    "command": "workbench.action.showAllEditors",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  {
-    "key": "space e",
-    "args": {
-      "commands": [
-        "workbench.action.toggleSidebarVisibility",
-        "workbench.files.action.focusFilesExplorer"
-      ]
-    },
-    "command": "runCommands",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus && !terminalFocus"
-  },
-  {
-    "key": "space e",
-    "args": {
-      "commands": [
-        "workbench.action.toggleSidebarVisibility",
-        "workbench.action.focusActiveEditorGroup"
-      ]
-    },
-    "command": "runCommands",
-    "when": "sideBarFocus && !inputFocus && !terminalFocus"
-  },
-  {
-    "key": "space e",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "vim.mode == 'Normal' && editorTextFocus && foldersViewVisible"
-  },
-  {
-    "key": "space z c",
-    "command": "editor.foldAll",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
-  },
-  {
-    "key": "space z o",
-    "command": "editor.unfoldAll",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
-  },
-  {
     "key": "shift+l",
     "command": "workbench.action.nextEditorInGroup",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
@@ -69,6 +29,51 @@
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   {
+    "key": "space ,",
+    "command": "workbench.action.showAllEditors",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space space",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space f r",
+    "command": "workbench.action.openRecent",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space f",
+    "command": "workbench.action.findInFiles",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space s m",
+    "command": "workbench.action.gotoSymbol",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space s d",
+    "command": "editor.action.revealDefinition",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space s u",
+    "command": "editor.action.goToReferences",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space s c",
+    "command": "workbench.action.showCommands",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
     "key": "space g d",
     "command": "gitlens.diffWithPrevious",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
@@ -76,19 +81,30 @@
   {
     "key": "space g h",
     "command": "gitlens.showQuickFileHistory",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) &&  gitOpenRepositoryCount > 0"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
   },
   {
     "key": "space g t",
     "command": "gitlens.showRepositoriesView",
-    "when": "vim.mode == 'Normal' &&  (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
   },
   {
     "key": "space g b",
     "command": "gitlens.showBranchesView",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
   },
-  // Coding
+  {
+    "key": "space g g",
+    "args": {
+      "text": "wt -d ${fileDirname} lazygit\r"
+    },
+    "command": "workbench.action.terminal.sendSequence",
+    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+
+  // ======================
+  // Editor Actions
+  // ======================
   {
     "key": "shift k",
     "command": "editor.action.showHover",
@@ -109,7 +125,6 @@
     "command": "editor.action.showHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-  // Refactoring
   {
     "key": "space r r",
     "command": "editor.action.rename",
@@ -165,82 +180,39 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space space",
-    "command": "workbench.action.quickOpen",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  },
-  {
-    "key": "space s m",
-    "command": "workbench.action.gotoSymbol",
+    "key": "space w u",
+    "command": "workbench.action.closeActiveEditor",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space s d",
-    "command": "editor.action.revealDefinition",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  },
-  {
-    "key": "space s u",
-    "command": "editor.action.goToReferences",
+    "key": "space w m",
+    "command": "workbench.action.moveEditorToNextGroup",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "gr",
-    "command": "editor.action.referenceSearch.trigger",
-    "when": "editorTextFocus"
+    "key": "space z c",
+    "command": "editor.foldAll",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
+  },
+  {
+    "key": "space z o",
+    "command": "editor.unfoldAll",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
+  },
+  {
+    "key": "space shift+7",
+    "command": "editor.action.commentLine",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space shift+7",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && vim.mode == 'Visual'"
   },
 
-  {
-    "key": "gd",
-    "command": "editor.action.revealDefinition",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
-  },
-  {
-    "key": "gD",
-    "command": "editor.action.revealDeclaration",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
-  },
-  {
-    "key": "gr",
-    "command": "editor.action.goToReferences",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
-  },
-  {
-    "key": "gi",
-    "command": "editor.action.goToImplementation",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
-  },
-  {
-    "key": "gm",
-    "command": "workbench.action.gotoSymbol",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
-  },
-    {
-    "key": "space f",
-    "command": "workbench.action.findInFiles",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  {
-    "key": "space f f",
-    "command": "workbench.action.quickOpen",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  {
-    "key": "space f r",
-    "command": "workbench.action.openRecent",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  {
-    "key": "space n",
-    "command": "workbench.action.files.newUntitledFile",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  {
-    "key": "ctrl-n",
-    "command": "editor.action.SelectionToNextFindMatch",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
-  },
+  // ======================
   // File Explorer
+  // ======================
   {
     "key": "r",
     "command": "renameFile",
@@ -264,7 +236,7 @@
   {
     "key": "d",
     "command": "deleteFile",
-  "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
     "key": "a",
@@ -294,18 +266,14 @@
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "space g g",
-    "args": {
-      "text": "wt -d ${fileDirname} lazygit\r"
-    },
-    "command": "workbench.action.terminal.sendSequence",
-    "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
-  },
-  {
     "key": "enter",
     "command": "list.toggleExpand",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
   },
+
+  // ======================
+  // Terminal
+  // ======================
   {
     "key": "space t t",
     "args": {
@@ -314,6 +282,10 @@
     "command": "workbench.action.terminal.newWithCwd",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
+
+  // ======================
+  // Window Management
+  // ======================
   {
     "key": "\\|",
     "command": "workbench.action.splitEditorRight",
@@ -325,94 +297,37 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space w m",
-    "command": "workbench.action.moveEditorToNextGroup",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+    "key": "ctrl+s v",
+    "command": "workbench.action.splitEditorRight",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
-    "key": "space w u",
+    "key": "ctrl+s h",
+    "command": "workbench.action.splitEditorDown",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+w q",
     "command": "workbench.action.closeActiveEditor",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
-    "key": "space",
-    "command": "-",
-    "when": "vim.mode == 'Insert' && editorTextFocus"
+    "key": "ctrl+w m",
+    "command": "workbench.action.moveEditorToNextGroup",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
+  {
+    "key": "ctrl+w shift+m",
+    "command": "workbench.action.moveEditorToPreviousGroup",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+
+  // ======================
+  // Miscellaneous
+  // ======================
   {
     "key": "ctrl+shift+p",
     "command": "workbench.action.showCommands"
-  },
-  {
-    "key": "space s c",
-    "command": "workbench.action.showCommands",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  {
-    "key": "space shift+7",
-    "command": "editor.action.commentLine",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  {
-    "key": "space shift+7",
-    "command": "editor.action.commentLine",
-    "when": "editorTextFocus && vim.mode == 'Visual'"
-  },
-  {
-    "key": "space shift+7",
-    "command": "editor.action.commentLine",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
-  },
-  //default ctrl +  mappings von vim
- {
-      "key": "ctrl+b",
-      "command": "scrollPageUp",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-      "key": "ctrl+d",
-      "command": "scrollPageDown",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'" 
-  },
-  {
-      "key": "ctrl+e",
-      "command": "scrollLineUp",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-      "key": "ctrl+f",
-      "command": "actions.find",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-      "key": "ctrl+w",
-      "command": "vim.remap",
-      "when": "editorTextFocus && vim.mode != 'Insert'"
-  },
-  {
-      "key": "ctrl+s v",
-      "command": "workbench.action.splitEditorRight",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-      "key": "ctrl+s h",
-      "command": "workbench.action.splitEditorDown",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-      "key": "ctrl+w q",
-      "command": "workbench.action.closeActiveEditor",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-      "key": "ctrl+w m",
-      "command": "workbench.action.moveEditorToNextGroup",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-      "key": "ctrl+w shift+m",
-      "command": "workbench.action.moveEditorToPreviousGroup",
-      "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+s",
@@ -428,7 +343,30 @@
     "key": "shift+ctrl+n",
     "command": "cursorUndo",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "scrollPageUp",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "scrollPageDown",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "scrollLineUp",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "actions.find",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "vim.remap",
+    "when": "editorTextFocus && vim.mode != 'Insert'"
   }
-
-
 ]
