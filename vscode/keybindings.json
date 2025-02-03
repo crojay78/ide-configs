@@ -170,7 +170,7 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space s f",
+    "key": "space l f",
     "command": "editor.action.formatDocument",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
