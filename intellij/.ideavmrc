@@ -152,3 +152,6 @@ sethandler <C-F> a:vim
 sethandler <C-H> a:vim
 sethandler <C-O> a:vim
 sethandler <C-R> a:vim
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
