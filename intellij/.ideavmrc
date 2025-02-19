@@ -63,14 +63,22 @@ map <leader>fc <action>(GotoClass)
 map <leader><leader> <action>(SearchEverywhere)
 
 nmap gr :action FindUsages<CR>
+nmap <leader>gr :action FindUsages<CR>
 nmap gd :action GotoDeclaration<CR>
+nmap <leader>gd :action GotoDeclaration<CR>
 nmap gh :action ShowHierarchy<CR>
+nmap <leader>gh :action ShowHierarchy<CR>
 nmap gy :action GotoTypeDeclaration<CR>
+nmap <leader>gy :action GotoTypeDeclaration<CR>
 nmap gI :action GotoImplementation<CR>
+nmap <leader>gI :action GotoImplementation<CR>
 nmap gu :action ShowUsages<CR>
+nmap <leader>gu :action ShowUsages<CR>
 nmap gt :action GotoTest<CR>
-nmap gK <Action>(ParameterInfo)
+nmap <leader>gt :action GotoTest<CR>
+nmap <leader>gK <Action>(ParameterInfo)
 map gm :action FileStructurePopup<CR>
+map <leader>gm :action FileStructurePopup<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings - Refactoring and Code Actions

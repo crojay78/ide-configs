@@ -34,6 +34,11 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
+    "key": "space e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
     "key": "space space",
     "command": "workbench.action.quickOpen",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
@@ -49,22 +54,32 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
+    "key": "space f p",
+    "command": "workbench.action.findInFiles",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
     "key": "space f i",
     "command": "workbench.action.findInFiles",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space s m",
+    "key": "space g m",
     "command": "workbench.action.gotoSymbol",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space s d",
+    "key": "space g d",
     "command": "editor.action.revealDefinition",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "space s u",
+    "key": "space g r",
+    "command": "editor.action.goToReferences",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space g u",
     "command": "editor.action.goToReferences",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
@@ -74,26 +89,6 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
-    "key": "space g d",
-    "command": "gitlens.diffWithPrevious",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0 && !inQuickOpen"
-  },
-  {
-    "key": "space g h",
-    "command": "gitlens.showQuickFileHistory",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
-  },
-  {
-    "key": "space g t",
-    "command": "gitlens.showRepositoriesView",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
-  },
-  {
-    "key": "space g b",
-    "command": "gitlens.showBranchesView",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && gitOpenRepositoryCount > 0"
-  },
-  {
     "key": "space g g",
     "args": {
       "text": "wt -d ${fileDirname} lazygit\r"
@@ -101,7 +96,6 @@
     "command": "workbench.action.terminal.sendSequence",
     "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
   },
-
   // ======================
   // Editor Actions
   // ======================
@@ -209,7 +203,6 @@
     "command": "editor.action.commentLine",
     "when": "editorTextFocus && vim.mode == 'Visual'"
   },
-
   // ======================
   // File Explorer
   // ======================
@@ -270,7 +263,6 @@
     "command": "list.toggleExpand",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
   },
-
   // ======================
   // Terminal
   // ======================
@@ -282,7 +274,6 @@
     "command": "workbench.action.terminal.newWithCwd",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
-
   // ======================
   // Window Management
   // ======================
@@ -321,7 +312,6 @@
     "command": "workbench.action.moveEditorToPreviousGroup",
     "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
   },
-
   // ======================
   // Miscellaneous
   // ======================
