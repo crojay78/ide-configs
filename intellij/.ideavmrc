@@ -136,9 +136,9 @@ map <leader>zo :action ExpandAllRegions<CR>
 map <leader>ww <Action>(Unsplit)
 map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 nnoremap \ :split<CR>
-nnoremap <leader>wh :split<CR>
+nnoremap <leader>sh :split<CR>
 nnoremap \| :vsplit<CR>
-nnoremap <leader>wv :vsplit<CR>
+nnoremap <leader>sv :vsplit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings - Miscellaneous
