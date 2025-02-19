@@ -283,6 +283,16 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
   },
   {
+    "key": "space s v",
+    "command": "workbench.action.splitEditorRight",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
+    "key": "space s h",
+    "command": "workbench.action.splitEditorDown",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
+  },
+  {
     "key": "\\\\",
     "command": "workbench.action.splitEditorDown",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !terminalFocus"
