@@ -370,18 +370,8 @@
     "when": "editorTextFocus && vim.mode != 'Insert'"
   },
   {
-    "key": "space n",
-    "command": "workbench.action.files.newFile",
-    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
-  },
-  {
-    "key": "space t",
-    "command": "workbench.action.terminal.focus",
-    "when": "editorTextFocus && vim.mode != 'Insert'"
-  },
-  {
-    "key": "ctrl+t",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminalFocus && !terminalTextSelected"
+    "key": "space",
+    "command": "-",
+    "when": "vim.mode == 'Search'"
   }
-
+]
