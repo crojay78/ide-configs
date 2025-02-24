@@ -267,12 +267,22 @@
   // Terminal
   // ======================
   {
-    "key": "space t t",
+    "key": "space t n",
     "args": {
       "cwd": "${fileDirname}"
     },
     "command": "workbench.action.terminal.newWithCwd",
     "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space t t",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorTextFocus && vim.mode != 'Insert'"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocus && !terminalTextSelected"
   },
   // ======================
   // Window Management
