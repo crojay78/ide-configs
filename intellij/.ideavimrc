@@ -1,4 +1,5 @@
-" LazyVim key mappings for Jetbrains IDEs.
+
+k" LazyVim key mappings for Jetbrains IDEs.
 
 " LazyVim default settings
 " https://www.lazyvim.org/configuration/general
@@ -189,13 +190,13 @@ nmap <leader>fT <Action>(ActivateTerminalToolWindow)
 " Terminal (Root Dir)
 nmap <C-/> <Action>(ActivateTerminalToolWindow)
 " nmap <C-_> 'There is no equivalent mapping for <c-_>.'<cr>
-" Hide Terminal - terminal mode maps not possible
+" Hide Terminal - terminal Mode maps not possible
 " Split Window Below.  :split<cr> doesn't work.
 nmap <leader>- <c-w>s
 " Split Window Right
 nmap <leader><bar> <c-w>v
 " Delete Window
-nmap <leader>wd <Action>(CloseContent)
+map <leader>wd <Action>(CloseContent)
 " Toggle Maximize
 nmap <leader>wm <Action>(ToggleDistractionFreeMode)
 
@@ -241,7 +242,7 @@ vmap <leader>ca <Action>(RefactoringMenu)
 " Run Codelens
 nmap <leader>cc :echo 'There is no equivalent mapping for Run Codelens.'<cr>
 " Refresh & Display Codelens
-nmap <leader>cC :echo 'There is no equivalent mapping for Refresh & Display Codelens.'<cr>
+nmap <Leader>cC :echo 'There is no equivalent mapping for Refresh & Display Codelens.'<cr>
 " Rename File
 nmap <leader>cR <Action>(RenameFile)
 " Rename
@@ -257,7 +258,7 @@ nmap <a-n> <Action>(GotoNextError)
 " Prev Reference (alternative)
 nmap <a-p> <Action>(GotoPreviousError)
 
-" Bufferline
+" BUFferline
 
 " Delete buffers to the left
 nmap <leader>bl <Action>(CloseAllToTheLeft)
@@ -475,17 +476,6 @@ nmap <leader>gq <Action>(HideActiveWindow)
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
 map <leader>fa <action>(GotoAction)
-" Verschiebt den Editor nach links
-nmap <leader>wh <Action>(TabMover.MoveTabLeft)
-
-" Verschiebt den Editor nach rechts
-nmap <leader>wl <Action>(TabMover.MoveTabRight)
-
-" Verschiebt den Editor nach oben (vertikal)
-nmap <leader>wk <Action>(TabMover.MoveTabUp)
-
-" Verschiebt den Editor nach unten (vertikal)
-nmap <leader>wj <Action>(TabMover.MoveTabDown)
 map gm :action FileStructurePopup<CR>
 map <leader>gm :action FileStructurePopup<CR>
 vnoremap J :m '>+1<CR>gv=gv
@@ -504,7 +494,6 @@ nmap <leader>dv <Action>(ActivateDatabaseToolWindow)
 xnoremap <leader>p "_d
 vmap <leader>cw <Action>(SurroundWith)
 
-
 " Window splits
 map <leader>ww <Action>(Unsplit)
 nnoremap <leader>- :split<CR>
@@ -522,3 +511,15 @@ nmap <leader>in :action Inline<CR>
 vmap <leader>in :action Inline<CR>
 nmap <leader>cg :action Generate<CR>
 
+" Aktuellen Block zuklappen
+nmap <leader>zc <Action>(CollapseRegion)
+
+" Aktuellen Block aufklappen
+nmap <leader>zo <Action>(ExpandRegion)
+
+" Alles zuklappen
+nmap <leader>zC <Action>(CollapseAllRegions)
+
+" Alles aufklappen
+nmap <leader>zO <Action>(ExpandAllRegions)
+nmap <leader>k <Action>(QuickJavaDoc)
